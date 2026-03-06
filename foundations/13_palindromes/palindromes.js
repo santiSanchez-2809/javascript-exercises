@@ -1,15 +1,16 @@
 const palindromes = function (str) {
-    const arr = str
+    const cleanedString = str
         .toLowerCase()
         .split("")
-        .filter(char => isLetterOrNumber(char));
-    const reversed = [...arr].reverse(); 
+        .filter(char => isLetterOrNumber(char))
+        .join("");
+    
+        const reversed = cleanedString
+        .split("")
+        .reverse()
+        .join(""); 
 
-    for(let i = 0; i < arr.length; i++){ 
-        if(reversed[i] !== arr[i]) return false;   
-    }
-
-    return true; 
+        return reversed === cleanedString;
 };
 
 function isLetterOrNumber(char){
